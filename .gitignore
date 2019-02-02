@@ -76,3 +76,7 @@ Icon
 ._*
 .Spotlight-V100
 .Trashes
+
+# -- This Package -------------------------------------
+.env
+!.env.example
