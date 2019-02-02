@@ -20,10 +20,16 @@ class UnitTests extends TestCase
         return getenv("FACE_API_KEY");
     }
 
+    public function getFaceApiRegion()
+    {
+        return getenv("FACE_API_REGION");
+    }
+
     public function testFaceDetect()
     {
         $key = $this->getFaceApiKey();
-        $api = new CognitiveFaceApi($key, "francecentral");
+        $region = $this->getFaceApiRegion();
+        $api = new CognitiveFaceApi($key, $region);
 
         try {
             $face = $api->face->detect(
