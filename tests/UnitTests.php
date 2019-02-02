@@ -23,7 +23,7 @@ class UnitTests extends TestCase
     public function testFaceDetect()
     {
         $key = $this->getFaceApiKey();
-        $api = new CognitiveFaceApi($key);
+        $api = new CognitiveFaceApi($key, "francecentral");
 
         try {
             $face = $api->face->detect(

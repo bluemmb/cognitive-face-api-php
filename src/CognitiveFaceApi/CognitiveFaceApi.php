@@ -34,9 +34,9 @@ class CognitiveFaceApi
      */
     public $face;
 
-    public function __construct($subscriptionKey)
+    public function __construct($subscriptionKey, $region)
     {
-        $this->client = new Client($subscriptionKey);
+        $this->client = new Client($subscriptionKey, $region);
         $this->faceList = new FaceListManager($this->client);
         $this->personGroup = new PersonGroupManager($this->client);
         $this->person = new PersonManager($this->client);

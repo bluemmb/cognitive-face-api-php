@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Client
 {
-    const BASE_URL = 'https://francecentral.api.cognitive.microsoft.com/face/v1.0/';
+    const BASE_URL = 'https://%s.api.cognitive.microsoft.com/face/v1.0/';
 
     /**
      * @var string
@@ -26,12 +26,13 @@ class Client
     /**
      * Client constructor.
      * @param $subscriptionKey
+     * @param $region
      */
-    public function __construct($subscriptionKey)
+    public function __construct($subscriptionKey, $region)
     {
         $this->subscriptionKey = $subscriptionKey;
         $this->httpClient = new GuzzleClient([
-            'base_uri' => self::BASE_URL
+            'base_uri' => sprintf(self::BASE_URL, $region),
         ]);
     }
 
