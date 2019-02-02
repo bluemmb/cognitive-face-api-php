@@ -3,7 +3,6 @@
 namespace CognitiveFaceApi\Factory;
 
 use CognitiveFaceApi\Resource\FaceAttributes;
-use CognitiveFaceApi\Resource\HeadPose;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FaceAttributesFactory
@@ -27,7 +26,15 @@ class FaceAttributesFactory
             $faceAttributesData['gender'],
             HeadPoseFactory::createFromArray($faceAttributesData['headPose']),
             FacialHairFactory::createFromArray($faceAttributesData['facialHair']),
-            $faceAttributesData['glasses']
+            $faceAttributesData['glasses'],
+            EmotionFactory::createFromArray($faceAttributesData['emotion']),
+            HairFactory::createFromArray($faceAttributesData['hair']),
+            MakeupFactory::createFromArray($faceAttributesData['makeup']),
+            OcclusionFactory::createFromArray($faceAttributesData['occlusion']),
+            AccessoriesFactory::createFromArray($faceAttributesData['accessories']),
+            BlurFactory::createFromArray($faceAttributesData['blur']),
+            ExposureFactory::createFromArray($faceAttributesData['exposure']),
+            NoiseFactory::createFromArray($faceAttributesData['noise'])
         );
 
         return $faceAttributes;
@@ -47,7 +54,15 @@ class FaceAttributesFactory
             'headPose',
             'smile',
             'facialHair',
-            'glasses'
+            'glasses',
+            'emotion',
+            'hair',
+            'makeup',
+            'occlusion',
+            'accessories',
+            'blur',
+            'exposure',
+            'noise'
         ]);
 
         return $resolver->resolve($faceAttributesData);
