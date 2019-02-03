@@ -15,7 +15,7 @@ class Hair
     private $invisible;
 
     /**
-     * @var array
+     * @var Color[]
      */
     private $hairColor;
 
@@ -43,7 +43,7 @@ class Hair
     }
 
     /**
-     * @return array
+     * @return Color[]
      */
     public function getHairColor()
     {
@@ -55,10 +55,14 @@ class Hair
      */
     public function toArray()
     {
+        $hairColorArray = [];
+        foreach ( $this->hairColor as $color )
+            $hairColorArray[] = $color->toArray();
+
         return [
             'bald' => $this->bald,
             'invisible' => $this->invisible,
-            'hairColor' => $this->hairColor
+            'hairColor' => $hairColorArray
         ];
     }
 }
