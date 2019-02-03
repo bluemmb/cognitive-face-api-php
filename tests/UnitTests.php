@@ -7,7 +7,7 @@ use Dotenv\Dotenv;
 
 class UnitTests extends TestCase
 {
-    public function __construct(?string $name = null, array $data = [], string $dataName = '')
+    public function __construct(string $name = null, array $data = [], string $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
 
@@ -60,5 +60,6 @@ class UnitTests extends TestCase
         }
 
         $this->assertSame($face->getFaceAttributes()->getEmotion()->getHappiness(), 0.999);
+        $this->assertIsArray($face->toArray());
     }
 }
