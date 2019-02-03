@@ -70,7 +70,7 @@ class Face
         }
 
         if (null != $this->getFaceAttributes()) {
-            $array['faceRectangle'] = $this->getFaceAttributes()->toArray();
+            $array['faceAttributes'] = $this->getFaceAttributes()->toArray();
         }
 
         return $array;

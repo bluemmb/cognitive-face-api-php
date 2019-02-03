@@ -61,5 +61,6 @@ class UnitTests extends TestCase
 
         $this->assertSame($face->getFaceAttributes()->getEmotion()->getHappiness(), 0.999);
         $this->assertIsArray($face->toArray());
+        $this->assertEquals(sizeof($face->toArray()), 3);
     }
 }
